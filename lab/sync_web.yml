@@ -1,0 +1,12 @@
+
+- hosts: web
+  tasks:
+  - name: "copy website"
+    copy:
+      src: site/
+      dest: /var/www/default
+  - name: "replace html"
+    replace:
+      path: /var/www/default/index.html
+      regexp: '61070190'
+      replace: 'from {{ inventory_hostname }}'
